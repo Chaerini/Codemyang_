@@ -1,0 +1,1 @@
+{"version":3,"file":"PaycoStatus.js","sourceRoot":"","sources":["../../lib/response/PaycoStatus.ts"],"names":[],"mappings":";;;;;AAAA,kDAAkC;AAGlC,MAAM,WAAY,SAAQ,cAAY;IAG7B,aAAa,CAAC,QAAqB;QACxC,MAAM,EAAE,MAAM,EAAE,GAAG,QAAQ,CAAC;QAE5B,IAAI,CAAC,MAAM,GAAG,MAAM,CAAC;IACvB,CAAC;CACF;AAED,kBAAe,WAAW,CAAC"}

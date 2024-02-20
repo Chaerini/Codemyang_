@@ -1,0 +1,35 @@
+import { SortingEnum } from './Sorting';
+import { StatusEnum } from './Status';
+import { DeliveryMethodEnum } from './DeliveryMethod';
+import { DeliveryCompanyEnum } from './DeliveryCompany';
+import { ReturnReasonEnum } from './ReturnReason';
+import { CancelReasonEnum } from './CancelReason';
+import { SettleVbankCodeEnum } from './SettleVbankCode';
+import { BankCodeEnum } from './BankCode';
+import { LogisCodeEnum } from './LogisCode';
+import { CardCodeEnum } from './CardCode';
+import { IdentifierTypeEnum } from './IdentifierType';
+import { IdentifierForEnum } from './IdentifierFor';
+import { KakaoOrderStatusEnum } from './KakaoOrderStatus';
+import { PaycoOrderStatusEnum } from './PaycoOrderStatus';
+import { WithholdReturnReasonEnum } from './WithholdReturnReason';
+import { ScheduledStatusEnum } from './ScheduledStatus';
+declare abstract class EnumBase {
+    static getSortingValue(key: SortingEnum): string;
+    static getStatusValue(key: StatusEnum): string;
+    static getDeliveryMethodValue(key: DeliveryMethodEnum): string;
+    static getDeliveryCompanyValue(key: DeliveryCompanyEnum): string;
+    static getReturnReasonValue(key: ReturnReasonEnum): string;
+    static getCancelReasonValue(key: CancelReasonEnum): string;
+    static getSettleVbankCodeValue(key: SettleVbankCodeEnum): string;
+    static getBankCodeValue(key: BankCodeEnum): string;
+    static getLogisCodeValue(key: LogisCodeEnum): string;
+    static getCardCodeValue(key: CardCodeEnum): string;
+    static getIdentifierTypeValue(key: IdentifierTypeEnum): string;
+    static getIdentifierForValue(key: IdentifierForEnum): string;
+    static getKakaoOrderStatusValue(key: KakaoOrderStatusEnum): string;
+    static getPaycoOrderStatusValue(key: PaycoOrderStatusEnum): string;
+    static getWithholdReturnReasonValue(key: WithholdReturnReasonEnum): string;
+    static getScheduledStatusValue(key: ScheduledStatusEnum): string;
+}
+export default EnumBase;

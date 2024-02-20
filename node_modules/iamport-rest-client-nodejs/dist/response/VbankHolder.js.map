@@ -1,0 +1,1 @@
+{"version":3,"file":"VbankHolder.js","sourceRoot":"","sources":["../../lib/response/VbankHolder.ts"],"names":[],"mappings":";;;;;AACA,kDAAkC;AAElC,MAAM,WAAY,SAAQ,cAAY;IAG7B,aAAa,CAAC,QAAqB;QACxC,MAAM,EAAE,WAAW,EAAE,GAAG,QAAQ,CAAC;QAEjC,IAAI,CAAC,WAAW,GAAG,WAAW,CAAC;IACjC,CAAC;CACF;AAED,kBAAe,WAAW,CAAC"}

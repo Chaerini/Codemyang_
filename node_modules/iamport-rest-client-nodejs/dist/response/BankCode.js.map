@@ -1,0 +1,1 @@
+{"version":3,"file":"BankCode.js","sourceRoot":"","sources":["../../lib/response/BankCode.ts"],"names":[],"mappings":";;;;;AAAA,kDAAkC;AAGlC,MAAM,QAAS,SAAQ,cAAY;IAI1B,aAAa,CAAC,QAAkB;QACrC,MAAM,EAAE,IAAI,EAAE,IAAI,EAAE,GAAG,QAAQ,CAAC;QAChC,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC;QACjB,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC;IACnB,CAAC;CACF;AAED,kBAAe,QAAQ,CAAC"}

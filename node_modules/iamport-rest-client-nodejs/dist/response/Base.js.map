@@ -1,0 +1,1 @@
+{"version":3,"file":"Base.js","sourceRoot":"","sources":["../../lib/response/Base.ts"],"names":[],"mappings":";;AAAA,MAAe,YAAY;IAGf,UAAU,CAAC,IAAS;QAC5B,OAAO,IAAI,KAAK,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,IAAI,IAAI,CAAC,IAAI,GAAC,IAAI,CAAC,CAAC;IAC9C,CAAC;IAEM,aAAa;QAClB,OAAO,IAAI,CAAC;IACd,CAAC;CACF;AAED,kBAAe,YAAY,CAAC"}

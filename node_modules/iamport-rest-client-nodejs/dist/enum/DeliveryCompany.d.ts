@@ -1,0 +1,47 @@
+export declare enum DeliveryCompanyEnum {
+    CJGLS = "CJGLS",
+    KGB = "KGB",
+    DONGBU = "DONGBU",
+    EPOST = "EPOST",
+    REGISTPOST = "REGISTPOST",
+    HANJIN = "HANJIN",
+    HYUNDAI = "HYUNDAI",
+    KGBLS = "KGBLS",
+    INNOGIS = "INNOGIS",
+    DAESIN = "DAESIN",
+    ILYANG = "ILYANG",
+    KDEXP = "KDEXP",
+    CHUNIL = "CHUNIL",
+    CH1 = "CH1",
+    HDEXP = "HDEXP",
+    CVSNET = "CVSNET",
+    DHL = "DHL",
+    FEDEX = "FEDEX",
+    GSMNTON = "GSMNTON",
+    WARPEX = "WARPEX",
+    WIZWA = "WIZWA",
+    EMS = "EMS",
+    DHLDE = "DHLDE",
+    ACIEXPRESS = "ACIEXPRESS",
+    EZUSA = "EZUSA",
+    PANTOS = "PANTOS",
+    UPS = "UPS",
+    HLCGLOBAL = "HLCGLOBAL",
+    KOREXG = "KOREXG",
+    TNT = "TNT",
+    SWGEXP = "SWGEXP",
+    DAEWOON = "DAEWOON",
+    USPS = "USPS",
+    IPARCEL = "IPARCEL",
+    KUNYOUNG = "KUNYOUNG",
+    HPL = "HPL",
+    DADREAM = "DADREAM",
+    SLX = "SLX",
+    SFEXPRESS = "SFEXPRESS",
+    HONAM = "HONAM"
+}
+declare class DeliveryCompany {
+    getValue(key: string): string;
+}
+declare const _default: DeliveryCompany;
+export default _default;
