@@ -18,8 +18,6 @@ app.use(cors());
 app.use(cookieParser());
 
 
-
-
 // 로그인 전 메인
 app.get('/api', (req, res) => {
   db.query(`SELECT Lectures.Title, Lectures.LectureimageURL, COUNT(Payments.LectureID), Lectures.LectureID
