@@ -457,6 +457,12 @@ body {
         .courses-categoryname {
           display: flex;
           flex-direction: row;
+
+          a {
+              flex-direction: column;
+              text-decoration: none;
+              color: inherit;
+          }
         }
 
         li {

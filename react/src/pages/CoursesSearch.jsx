@@ -57,7 +57,7 @@ const Courses = () => {
             <div className='courses-body'>
                 <div className='courses-header'>
                     <div className='courses-categoryname'>
-                    <li><a>전체 강의</a></li>
+                    <li><a href='/courses'>전체 강의</a></li>
                     <li><a>/</a></li>
                     <li><a>"{ params.Searchword }"에 대한 결과</a></li>
                     </div>

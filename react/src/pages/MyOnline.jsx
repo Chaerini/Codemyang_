@@ -29,6 +29,27 @@ const MyOnline = () => {
         fetchData();
     }, []);
 
+    // 진행률
+    const [videoprogress, setVideoprogress] = useState();
+
+    // 진행률 계산하기
+    useEffect(() => {        
+        const fetchData = async () => {
+            try {
+                const res = await axios.post('/api/videoprogress/calculate', { params: { UserID: currentUser?.UserID, LectureID: lectureroom }})
+                if (res.data.code === 200) {
+
+                    //setLectureroom(res.data.mylectures);
+                    console.log(lectureroom);
+                    console.log(res.data);
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchData();
+    }, []);
+
     return (
         <div className='myonline'>
             <h1>내 강의실</h1>

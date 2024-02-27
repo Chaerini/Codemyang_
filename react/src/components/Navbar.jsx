@@ -28,7 +28,7 @@ const Navbar = () => {
                             <h6>내 강의실</h6>
                             </Link>
                             <Link className="link" to="/profile">
-                            <img src={ `http://localhost:3000/${currentUser?.ImageURL}` }></img>
+                            <img src={ `http://54.180.108.191:3000/${currentUser?.ImageURL}` }></img>
                             </Link>
                             <Link className="link" to="/profile">
                             <h6>{ currentUser.Nickname }</h6>

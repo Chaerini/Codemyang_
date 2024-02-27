@@ -38,7 +38,7 @@ app.get('/api', (req, res) => {
             message : "잘못된 요청입니다."
           })
         } else {
-          db.query(`SELECT CategoryID, CategoryName, CategoryURL FROM category;`, (err, row3) => {
+          db.query(`SELECT CategoryID, CategoryName, CategoryURL FROM Category;`, (err, row3) => {
             if (err) {
               console.log(err);
               res.json({
@@ -247,7 +247,7 @@ app.get('/api/user', (req, res) => {
       })
     }else {
       if (!res.headersSent) { // 중복을 방지하기 위해 응답을 한 번만 보낸다.
-        db.query(`SELECT Lectures.Title, Lectures.LectureimageURL, Lectures.LectureID COUNT(Payments.LectureID) AS COUNT
+        db.query(`SELECT Lectures.Title, Lectures.LectureimageURL, Lectures.LectureID, COUNT(Payments.LectureID) AS COUNT
         FROM Lectures LEFT JOIN Payments ON Lectures.LectureID = Payments.LectureID
         GROUP BY Lectures.LectureID ORDER BY COUNT(Payments.LectureID) DESC;`, (err, rows1) => {
       if (err) {
@@ -664,6 +664,60 @@ app.get('/api/erollments', (req, res) => {
   });
 });
 
+// 진행률 불러오기
+app.post('/api/videoprogress', (req, res) => {
+  const tocid = req.body.TOCID;   
+  const userid = req.body.UserID;
+  const sql = 'SELECT * FROM VideoProgress WHERE UserID = ? AND TOCID = ?;';
+  const values = [userid, tocid];
+  
+    db.query(sql, values, (err, rows) => {
+      if (err) {
+        console.log(err);
+        res.json({
+          code : 401,
+          message : "잘못된 요청입니다."
+        })
+      } else {
+        if (!res.headersSent) { // 중복을 방지하기 위해 응답을 한 번만 보낸다.
+          res.json({ 
+            code: 200,
+            progress: rows
+          });
+        }
+      }
+    });
+});
+
+// 강의 진행률 업데이트
+app.put(`/api/videoprogress/update`, (req, res) => {
+  const progress = req.body.Progress;
+  const userid = req.body.UserID;
+  const tocid = req.body.TOCID;
+  const sql = `UPDATE VideoProgress SET Progress = ? WHERE UserID = ? AND TOCID = ?;`
+  const values = [progress, userid, tocid]
+  db.query(sql, values, (err, rows) => {
+    if (err) {
+      console.log(err);
+      res.json({
+        code : 401,
+        message : "잘못된 요청입니다."
+      })
+    } else {
+      if (!res.headersSent) { // 중복을 방지하기 위해 응답을 한 번만 보낸다.
+        res.json({
+          code : 200,
+          message : "응답 완료",
+          "progress" : progress,
+          "userid" : userid,
+          "tocid" : tocid,
+          "row" : rows
+        });
+      }
+    }
+  });
+});
+
 // 마이 페이지 정보 가져오기
 app.post('/api/userinfo', (req, res) => {
   const userid = req.body.UserID;
@@ -918,12 +972,41 @@ app.put(`/api/erollments/update`, (req, res) => {
   });
 });
 
+// 강의 전체 시간 업데이트
+app.put(`/api/videotime/update`, (req, res) => {
+  const videotime = req.body.Videotime;
+  const minutes = Math.floor(videotime / 60); // 분
+  const seconds = Math.round(videotime % 60); // 초
+  const tocid = req.body.TOCID;
+  const sql = `UPDATE LectureTOC SET Videotime = '?분 ?초' WHERE TOCID = ?;`
+  const values = [minutes, seconds, tocid]
+  db.query(sql, values, (err, rows) => {
+    if (err) {
+      console.log(err);
+      res.json({
+        code : 401,
+        message : "잘못된 요청입니다."
+      })
+    } else {
+      if (!res.headersSent) { // 중복을 방지하기 위해 응답을 한 번만 보낸다.
+        res.json({
+          code : 200,
+          message : "응답 완료",
+          "videotime" : videotime,
+          "tocid" : tocid
+        });
+      }
+    }
+  });
+});
+
 // 커리큘럼 정보 가져오기
 app.get('/api/curriculum', (req, res) => {
   const lectureid = req.query.LectureID;
-  db.query(`SELECT Lectures.Title, Lectures.LectureImageURL, LectureTOC.*
-      FROM Lectures LEFT JOIN LectureTOC ON Lectures.LectureID = LectureTOC.LectureID
-      WHERE Lectures.LectureID = ${lectureid};`, (err, rows) => {
+  db.query(`SELECT Lectures.Title, Lectures.LectureImageURL, LectureTOC.*, LecturesMaterial.MaterialURL
+  FROM Lectures LEFT JOIN LectureTOC ON Lectures.LectureID = LectureTOC.LectureID
+  LEFT JOIN LecturesMaterial ON LectureTOC.TOCID = LecturesMaterial.TOCID
+  WHERE Lectures.LectureID = ${lectureid};`, (err, rows) => {
     if (err) {
       console.log(err);
       res.json({

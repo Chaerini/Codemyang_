@@ -127,7 +127,7 @@ const Lectureinfo = () => {
                     {ischeck === false ? (
                         <div className='pay'><a href={`/payment/${params?.LectureID}`}><button>결제</button></a></div>
                     ) : (
-                        <div className='payfalse'><button>수강 중인 강의입니다.</button></div>
+                        <div className='payfalse'><a href={`/erollments/play/${params?.LectureID}/${params?.LectureID}001`}><button>수강 중인 강의입니다.</button></a></div>
                     )}
                 </div>
             </div>
